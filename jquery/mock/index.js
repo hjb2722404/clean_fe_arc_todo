@@ -1,0 +1,59 @@
+import Mock from 'mockjs';
+import { param2Obj } from './utils';
+
+const mocks = [
+    ...site,
+    ...unit,
+    ...notice
+];
+
+export function mockXHR() {
+    Mock.XHR.prototype.proxy_send = Mock.XHR.prototype.send;
+    Mock.XHR.prototype.send = function() {
+      if (this.custom.xhr) {
+        this.custom.xhr.withCredentials = this.withCredentials || false;
+        if (this.responseType) {
+          this.custom.xhr.responseType = this.responseType;
+        }
+      }
+      this.proxy_send(...arguments);
+    };
+
+    function XHR2ExpressReqWrap(respond) {
+      return function(options) {
+        let result = null;
+        if (respond instanceof Function) {
+          const { body, type, url } = options;
+          result = respond({
+            method: type,
+            body: JSON.parse(body),
+            query: param2Obj(url)
+          });
+        } else {
+          result = respond;
+        }
+        return Mock.mock(result);
+      };
+    }
+    for (const i of mocks) {
+      if (i.isMock) {
+        Mock.mock(new RegExp(i.url), i.type || 'get', XHR2ExpressReqWrap(i.response));
+      }
+    }
+}
+
+const responseFake = (url, type, respond) => {
+    return {
+      url: new RegExp(`/mock${url}`),
+      type: type || 'get',
+      response(req, res) {
+        res.json(Mock.mock(respond instanceof Function ? respond(req, res) : respond));
+      }
+    };
+};
+
+export default mocks.filter(route => {
+  return route.isMock;
+}).map(route => {
+    return responseFake(route.url, route.type, route.response);
+});

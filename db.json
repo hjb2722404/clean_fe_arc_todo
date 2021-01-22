@@ -1,0 +1,113 @@
+{
+    "user": [
+        {
+            "id": "001",
+            "name": "张三",
+            "avtar": ""
+        }
+    ],
+    "cat": [
+        {
+            "id": "001",
+            "catName": "生活",
+            "parentId": "0"
+        },
+        {
+            "id": "002",
+            "catName": "工作",
+            "parentId": "0"
+        },
+        {
+            "id": "003",
+            "catName": "待看电影",
+            "parentId": "001"
+        },
+        {
+            "id": "004",
+            "catName": "待读书籍",
+            "parentId": "001"
+        },
+        {
+            "id": "005",
+            "catName": "项目A",
+            "parentId": "002"
+        },
+        {
+            "id": "006",
+            "catName": "项目B",
+            "parentId": "002"
+        }
+    ],
+    "todo": [
+        {
+            "id": "001",
+            "title": "乱世佳人",
+            "description": "xxx",
+            "catId": "003",
+            "userId": "001"
+        },
+        {
+            "id": "002",
+            "title": "乱世佳人1",
+            "description": "xxx",
+            "catId": "003",
+            "userId": "001"
+        },
+        {
+            "id": "003",
+            "title": "乱世佳人2",
+            "description": "xxx",
+            "catId": "003",
+            "userId": "001"
+        },
+        {
+            "id": "004",
+            "title": "乱世佳人3",
+            "description": "xxx",
+            "catId": "004",
+            "userId": "001"
+        },
+        {
+            "id": "005",
+            "title": "乱世佳人4",
+            "description": "xxx",
+            "catId": "005",
+            "userId": "001"
+        },
+        {
+            "id": "006",
+            "title": "乱世佳人5",
+            "description": "xxx",
+            "catId": "005",
+            "userId": "001"
+        },
+        {
+            "id": "007",
+            "title": "乱世佳人6",
+            "description": "xxx",
+            "catId": "005",
+            "userId": "001"
+        },
+        {
+            "id": "008",
+            "title": "乱世佳人7",
+            "description": "xxx",
+            "catId": "006",
+            "userId": "001"
+        },
+        {
+            "id": "009",
+            "title": "乱世佳人8",
+            "description": "xxx",
+            "catId": "006",
+            "userId": "001"
+        },
+        {
+            "id": "010",
+            "title": "乱世佳人9",
+            "description": "xxx",
+            "catId": "006",
+            "userId": "001"
+        }
+    ]
+}

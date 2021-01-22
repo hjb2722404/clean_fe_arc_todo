@@ -1,0 +1,21 @@
+{
+    "name": "clean_arc_todo_js",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+    },
+    "dependencies": {
+    },
+    "devDependencies": {
+      "less": "^3.0.4",
+      "less-loader": "^5.0.0",
+      "lodash-id": "^0.14.0",
+      "lowdb": "^1.0.0",
+      "mockjs": "^1.1.0"
+    },
+    "browserslist": [
+      "> 1%",
+      "last 2 versions"
+    ]
+  }
+  
